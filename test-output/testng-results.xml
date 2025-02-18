@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-02-18T19:30:02 IST" name="Default suite" finished-at="2025-02-18T19:30:18 IST" duration-ms="15518">
+    <groups>
+    </groups>
+    <test started-at="2025-02-18T19:30:02 IST" name="Default test" finished-at="2025-02-18T19:30:18 IST" duration-ms="15518">
+      <class name="tests.Sample1">
+        <test-method signature="Test_get()[pri:0, instance:tests.Sample1@4a8355dd]" started-at="2025-02-18T19:30:02 IST" name="Test_get" finished-at="2025-02-18T19:30:06 IST" duration-ms="4073" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test_get -->
+        <test-method signature="Test_get2()[pri:0, instance:tests.Sample1@4a8355dd]" started-at="2025-02-18T19:30:06 IST" name="Test_get2" finished-at="2025-02-18T19:30:08 IST" duration-ms="1644" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test_get2 -->
+        <test-method signature="Test_post2(int,int,int,java.lang.String,java.lang.String,boolean)[pri:0, instance:tests.Sample1@4a8355dd]" started-at="2025-02-18T19:30:08 IST" name="Test_post2" data-provider="orderData" finished-at="2025-02-18T19:30:10 IST" duration-ms="2053" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[198772]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[7]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[2025-02-18T09:42:10.013Z]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[approved]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[true]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test_post2 -->
+        <test-method signature="Test_post2(int,int,int,java.lang.String,java.lang.String,boolean)[pri:0, instance:tests.Sample1@4a8355dd]" started-at="2025-02-18T19:30:10 IST" name="Test_post2" data-provider="orderData" finished-at="2025-02-18T19:30:12 IST" duration-ms="1573" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[11]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[198773]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[5]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[2025-02-19T09:42:10.013Z]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[shipped]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test_post2 -->
+        <test-method signature="Test_post2(int,int,int,java.lang.String,java.lang.String,boolean)[pri:0, instance:tests.Sample1@4a8355dd]" started-at="2025-02-18T19:30:12 IST" name="Test_post2" data-provider="orderData" finished-at="2025-02-18T19:30:13 IST" duration-ms="1420" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[12]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[198774]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[2025-02-20T09:42:10.013Z]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[delivered]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[true]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test_post2 -->
+        <test-method signature="Test_delete()[pri:0, instance:tests.Sample1@4a8355dd]" started-at="2025-02-18T19:30:13 IST" name="Test_delete" finished-at="2025-02-18T19:30:15 IST" depends-on-methods="tests.Sample1.Test_post2" duration-ms="1509" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test_delete -->
+        <test-method signature="Test_post()[pri:0, instance:tests.Sample1@4a8355dd]" started-at="2025-02-18T19:30:15 IST" name="Test_post" finished-at="2025-02-18T19:30:16 IST" duration-ms="1533" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test_post -->
+        <test-method signature="Test_put()[pri:0, instance:tests.Sample1@4a8355dd]" started-at="2025-02-18T19:30:16 IST" name="Test_put" finished-at="2025-02-18T19:30:18 IST" duration-ms="1552" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test_put -->
+      </class> <!-- tests.Sample1 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
