@@ -2,20 +2,19 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import org.testng.annotations.Parameters;
 import static io.restassured.RestAssured.*;
 
 import io.qameta.allure.Description;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.simple.JSONObject;
 
-import static io.restassured.RestAssured.given;
-
+@Listeners(TestListener.class)
 public class Sample1 {
     
     private static int orderId;  
-    
     
     @DataProvider(name = "orderData")
     public Object[][] createOrderData() {
@@ -26,12 +25,12 @@ public class Sample1 {
         };
     }
 
-    
     @Test
-    @Description("Get details of your pet")
-    public void Test_get() {
+    @Parameters({"status"})
+	@Description("Get details of your pet")
+    public void Test_get(String status) {
         baseURI = "https://petstore3.swagger.io/api";
-        Response response = given().get("/v3/pet/findByStatus?status=available");
+        Response response = given().get("/v3/pet/findByStatus?status=" + status);
         
         System.out.println(response.getStatusCode());
         System.out.println(response.getTime());
@@ -42,29 +41,27 @@ public class Sample1 {
         Assert.assertEquals(statusCode, 200);
     }
 
-    
     @Test
-    public void Test_post() {
+	@Parameters({"petId"})
+	public void Test_post(String petId) {
         baseURI = "https://petstore3.swagger.io/api/v3";
-        String petID = "10";
         
-        given().post("/pet/{petId}", petID)
+        given().post("/pet/{petId}", petId)
             .then().statusCode(400).log().all();
     }
 
-    
     @Test
-    public void Test_get2() {
+	@Parameters({"petId"})
+	public void Test_get2(String petId) {
         baseURI = "https://petstore3.swagger.io/api/v3";
-        String petID = "10";
         
-        given().get("/pet/{petId}", petID)
+        given().get("/pet/{petId}", petId)
             .then().statusCode(200).log().all();
     }
 
-    
     @Test(dataProvider = "orderData")
-    public void Test_post2(int id, int petId, int quantity, String shipDate, String status, boolean complete) {
+	@Parameters({"id", "petId", "quantity", "shipDate", "status", "complete"})
+	public void Test_post2(int id, int petId, int quantity, String shipDate, String status, boolean complete) {
         JSONObject request = new JSONObject();
         request.put("id", id);
         request.put("petId", petId);
@@ -92,9 +89,9 @@ public class Sample1 {
         Assert.assertNotNull(orderId, "Order ID should not be null");
     }
 
-    
-    @Test(dependsOnMethods = {"Test_post2"})
-    public void Test_delete() {
+    @Test
+	@Parameters({"orderId"})
+	public void Test_delete(int orderId) {
         
         Assert.assertTrue(orderId > 0, "Order ID must be valid");
 
@@ -106,22 +103,16 @@ public class Sample1 {
                 extract().response();
 
         System.out.println("Delete Response: " + deleteResponse.asString());
-
-                
     }
     
     @Test
-    public void Test_put() {
-baseURI = "https://petstore3.swagger.io/api/v3";
-
+	@Parameters({"petId", "name"})
+	public void Test_put(String petId, String name) {
+        baseURI = "https://petstore3.swagger.io/api/v3";
         
         JSONObject requestBody = new JSONObject();
-        
-
-
-        
-        requestBody.put("id", 10);
-        requestBody.put("name", "doggie");
+        requestBody.put("id", petId);
+        requestBody.put("name", name);
         System.out.println("Request Payload: " + requestBody.toJSONString());
 
         Response myresponse = given().
@@ -133,12 +124,7 @@ baseURI = "https://petstore3.swagger.io/api/v3";
                 statusCode(200).log().all().
                 extract().response();
         
-       
-        String name = myresponse.jsonPath().getString("name");
-        Assert.assertEquals(name, "doggie", "Pet name should be 'doggie'");
-        
+        String petName = myresponse.jsonPath().getString("name");
+        Assert.assertEquals(petName, name, "Pet name should be " + name);
     }
-    
-   
-
 }

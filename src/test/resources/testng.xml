@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Rest Assured Testing">
+    <test name="Sample Test">
+         <classes>
+         	 <parameter name="status" value="available"/>
+         	 <parameter name="petId" value="10"/>
+			 <parameter name="id" value="12345"/>
+		 	 <parameter name="quantity" value="7"/>
+			 <parameter name="shipDate" value="2025-02-18T09:42:10.013Z"/>
+			 <parameter name="complete" value="true"/>
+			 <parameter name="orderId" value="98765"/>
+			 <parameter name="name" value="doggie"/>
+             <class name="tests.Sample1"/>
+          </classes>
+     </test>
+</suite>
